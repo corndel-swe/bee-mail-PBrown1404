@@ -1,16 +1,23 @@
 package com.beemail;
 
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 public class Message {
-    private String id;
-    private DateTimeFormatter datetime;
-    private String content;
-    private String from;
-    private String to;
-    private Boolean delivered;
-    private Boolean read;
+    private String id = Utils.randomAlphaNum(128);
+    private final LocalDate datetime = LocalDate.now();
+    private final String content;
+    private final User from;
+    private final User to;
+    private Boolean delivered = false;
+    private Boolean read = false;
+
+    public Message(String content, User from, User to) {
+        this.content = content;
+        this.from = from;
+        this.to = to;
+    }
     //private static Set<String> messageId = Set.of();
 
     // System.out.println("Enter your message");
@@ -22,16 +29,18 @@ public class Message {
     //        messageId.add(id);
     //        content = System.console().readLine();
 
-    private void log() {
-        String message = String.format("%1s, %2s, %3s",datetime,from,content);
+    void log() {
+        String message = String.format("%1s %2s \n%3s",from,datetime,content);
         System.out.println(message);
+        markRead();
     }
 
-    private void markDelivered() {
+    void markDelivered() {
         delivered = true;
     }
 
-    private void markRead() {
+    Message markRead() {
         read = true;
+        return this;
     }
 }

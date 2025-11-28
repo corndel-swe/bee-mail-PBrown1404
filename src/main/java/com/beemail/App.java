@@ -4,15 +4,15 @@ import static com.beemail.User.*;
 
 public class App {
 
-    private static App app;
+    private static App instance;
 
     private App() {}
 
     public static App getInstance() {
-        if (app == null) {
-            app = new App();
+        if (instance == null) {
+            instance = new App();
         }
-        return app;
+        return instance;
     }
     private void addUser(User user) {
 
