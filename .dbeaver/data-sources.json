@@ -1,0 +1,35 @@
+{
+	"folders": {},
+	"connections": {
+		"sqlite_jdbc-19acaf1a50e-b70ba486e98b8f5": {
+			"provider": "sqlite",
+			"driver": "sqlite_jdbc",
+			"name": ".project",
+			"save-password": true,
+			"configuration": {
+				"database": "/home/peter/Development/amex25/bee-mail-PBrown1404/.project",
+				"url": "jdbc:sqlite:/home/peter/Development/amex25/bee-mail-PBrown1404/.project",
+				"configurationType": "MANUAL",
+				"type": "dev",
+				"closeIdleConnection": true,
+				"auth-model": "native"
+			}
+		}
+	},
+	"connection-types": {
+		"dev": {
+			"name": "Development",
+			"color": "255,255,255",
+			"description": "Regular development database",
+			"auto-commit": true,
+			"confirm-execute": false,
+			"confirm-data-change": false,
+			"smart-commit": false,
+			"smart-commit-recover": true,
+			"auto-close-transactions": true,
+			"close-transactions-period": 1800,
+			"auto-close-connections": true,
+			"close-connections-period": 14400
+		}
+	}
+}
