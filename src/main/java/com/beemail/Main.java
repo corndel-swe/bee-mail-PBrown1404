@@ -5,5 +5,12 @@ public class Main {
         System.out.println("Hello World");
 
         App app = App.getInstance();
+
+        User sender = new User("123", "PeterBrown");
+
+        sender.addUser(app);
+
+        sender.sendMessage("123", "Hello World!");
+
     }
 }

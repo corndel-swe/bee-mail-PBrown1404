@@ -13,6 +13,7 @@ public class User {
     private final String id;
     private final String username;
     private final List<Message> inbox = new ArrayList<>();
+    private App mediator;
 
 //    private static Set<String> userIds = Set.of();
 //    private static Set<String> usernames = Set.of();
@@ -31,7 +32,9 @@ public class User {
         return username;
     }
 
-    static void addUser(App app) {
+    public void addUser(App app) {
+        app.addUser(this);
+        mediator = app;
 //        do {
 //            id = randomAlphaNum(16);
 //            System.out.println("Enter your Username");
@@ -45,8 +48,8 @@ public class User {
 //        usernames.add(username);
     }
 
-    private void sendMessage(String recipientId, String content) {
-
+    public void sendMessage(String recipientId, String content) {
+            mediator.deliverMessage(id, recipientId, content);
     }
 
     private void receiveMessage (Message message) {
